@@ -442,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingMaterial: 0
   buildingSize: 0
-  buildingObject: {fileID: 0}
+  buildingObject: {fileID: 473604298}
   buildingHealth: 0
 --- !u!4 &2026807677
 Transform:

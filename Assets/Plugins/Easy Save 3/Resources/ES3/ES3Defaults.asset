@@ -40,6 +40,7 @@ MonoBehaviour:
     - PsdPlugin
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - UniTask.Editor
+    - GoogleMobileAds.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0

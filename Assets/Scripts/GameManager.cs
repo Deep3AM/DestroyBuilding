@@ -10,6 +10,8 @@ public class GameManager
     private static GameManager instance = null;
     public bool canRaycastGameObject = true;
     public ConcurrentDictionary<string, List<Dictionary<string, object>>> dataListDictionary = new ConcurrentDictionary<string, List<Dictionary<string, object>>>();
+    public ConcurrentDictionary<string, AudioSource> audios = new ConcurrentDictionary<string, AudioSource>();
+    public ConcurrentDictionary<string, AudioClip> audioClips = new ConcurrentDictionary<string, AudioClip>();
     private DataDownloader dataDownloader = new DataDownloader();
     private GameObject loadingPrefab = null;
     private GameObject loadingObject = null;
@@ -75,5 +77,32 @@ public class GameManager
     public void OnSceneAsync(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void InitSound()
+    {
+        if (!audios.ContainsKey("BGM"))
+        {
+            var bgm = new GameObject();
+            bgm.name = "BGM";
+            bgm.AddComponent<AudioSource>();
+            audios.TryAdd("BGM", bgm.GetComponent<AudioSource>());
+            GameObject.DontDestroyOnLoad(bgm);
+        }
+        if (!audios.ContainsKey("SFX"))
+        {
+            var sfx = new GameObject();
+            sfx.name = "SFX";
+            sfx.AddComponent<AudioSource>();
+            audios.TryAdd("SFX", sfx.GetComponent<AudioSource>());
+            GameObject.DontDestroyOnLoad(sfx);
+        }
+        var musics = Resources.LoadAll("Musics/", typeof(AudioClip));
+        foreach (var music in musics)
+        {
+            audioClips.TryAdd(music.name, music as AudioClip);
+            Debug.Log(music.name);
+        }
+
     }
 }

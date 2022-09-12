@@ -36,7 +36,7 @@ public class DataDownloader
                         {
                             Debug.Log("데이터가 다르므로 재다운로드함");
                             originalData.Close();
-                            await File.WriteAllBytesAsync(Application.persistentDataPath + "/" + dataName, www.downloadHandler.data);
+                            File.WriteAllBytes(Application.persistentDataPath + "/" + dataName, www.downloadHandler.data);
                         }
                         else
                         {
@@ -46,7 +46,7 @@ public class DataDownloader
                     else
                     {
                         Debug.Log("파일이 존재하지 않으므로 다운로드 합니다.");
-                        await File.WriteAllBytesAsync(Application.persistentDataPath + "/" + dataName, www.downloadHandler.data);
+                        File.WriteAllBytes(Application.persistentDataPath + "/" + dataName, www.downloadHandler.data);
                     }
 
                 }

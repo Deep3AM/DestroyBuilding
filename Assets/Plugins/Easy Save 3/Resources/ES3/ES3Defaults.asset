@@ -37,11 +37,8 @@ MonoBehaviour:
     - Sirenix.OdinInspector.CompatibilityLayer
     - UniTask.TextMeshPro
     - UniTask.Addressables
-    - PsdPlugin
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - UniTask.Editor
-    - GoogleMobileAds.Editor
-    - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

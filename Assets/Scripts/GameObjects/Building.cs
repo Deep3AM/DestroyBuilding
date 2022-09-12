@@ -121,8 +121,8 @@ public class Building : MonoBehaviour
 
     public void InitGameLevel()
     {
-        int healthEval;
-        ExpressionEvaluator.Evaluate(string.Format(buildingHealthExpression, buildingBaseStat.BaseBuildingHealth, GameManager.Instance.gameData.GameLevel), out healthEval);
-        buildingFullHealth = healthEval;
+        //int healthEval;
+        //ExpressionEvaluator.Evaluate(string.Format(buildingHealthExpression, buildingBaseStat.BaseBuildingHealth, GameManager.Instance.gameData.GameLevel), out healthEval);
+        //buildingFullHealth = healthEval;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Sirenix.OdinInspector;
 using Cysharp.Threading.Tasks;
+using System.Data;
 
 public class Building : MonoBehaviour
 {
@@ -121,8 +122,9 @@ public class Building : MonoBehaviour
 
     public void InitGameLevel()
     {
-        //int healthEval;
-        //ExpressionEvaluator.Evaluate(string.Format(buildingHealthExpression, buildingBaseStat.BaseBuildingHealth, GameManager.Instance.gameData.GameLevel), out healthEval);
-        //buildingFullHealth = healthEval;
+        int healthEval;
+        DataTable dt = new DataTable();
+        healthEval=(int)dt.Compute(string.Format(buildingHealthExpression, buildingBaseStat.BaseBuildingHealth, GameManager.Instance.gameData.GameLevel),"");
+        buildingFullHealth = healthEval;
     }
 }

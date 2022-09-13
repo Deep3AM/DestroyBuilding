@@ -39,6 +39,7 @@ MonoBehaviour:
     - UniTask.Addressables
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - UniTask.Editor
+    - GoogleMobileAds.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

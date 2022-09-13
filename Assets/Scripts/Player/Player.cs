@@ -90,14 +90,17 @@ public class Player : MonoBehaviour
         Debug.Log(GameManager.Instance.gameData.PlayerAmmoLevel);
         if (isAttackUp || isAmmoUp || isReloadUp)
             GameManager.Instance.Save();
-        //int attackEval;
-        //int ammoEval;
-        //float reloadEval;
-        //ExpressionEvaluator.Evaluate(string.Format(playerAttackExpression, playerBaseStat.BaseAttack, GameManager.Instance.gameData.PlayerAttackLevel), out attackEval);
-        //ExpressionEvaluator.Evaluate(string.Format(playerAmmoExpression, playerBaseStat.BaseAmmo, GameManager.Instance.gameData.PlayerAmmoLevel), out ammoEval);
-        //ExpressionEvaluator.Evaluate(string.Format(playerReloadExpression, playerBaseStat.BaseReloadTime, GameManager.Instance.gameData.PlayerReloadLevel), out reloadEval);
-        //playerAttack = attackEval;
-        //fullAmmo = ammoEval;
-        //reloadTime = reloadEval;
+
+
+
+        System.Data.DataTable dt = new System.Data.DataTable();
+        int attackEval = (int)dt.Compute(string.Format(playerAttackExpression, playerBaseStat.BaseAttack, GameManager.Instance.gameData.PlayerAttackLevel), "");
+        int ammoEval = (int)dt.Compute(string.Format(playerAmmoExpression, playerBaseStat.BaseAmmo, GameManager.Instance.gameData.PlayerAmmoLevel), "");
+        Debug.Log(string.Format(playerReloadExpression, playerBaseStat.BaseReloadTime, GameManager.Instance.gameData.PlayerReloadLevel));
+        float reloadEval = (float)dt.Compute(string.Format(playerReloadExpression, playerBaseStat.BaseReloadTime, GameManager.Instance.gameData.PlayerReloadLevel), "");
+
+        playerAttack = attackEval;
+        fullAmmo = ammoEval;
+        reloadTime = reloadEval;
     }
 }
